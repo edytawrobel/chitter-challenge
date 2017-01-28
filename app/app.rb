@@ -42,7 +42,7 @@ class Chitter < Sinatra::Base
   #  else
   #    flash[:error] = user.errors.full_messages
   #    redirect '/users/new'
-  #  end
+  end
  end
 
 
