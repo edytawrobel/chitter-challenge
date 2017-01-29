@@ -19,5 +19,4 @@ feature 'User signs out' do
     click_button 'Log in'
   end
 
-
 end

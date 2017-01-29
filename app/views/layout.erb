@@ -2,18 +2,20 @@
 <html>
 <head>
   <title>Chitter chatter</title>
+  <link rel='stylesheet' type='text/css' href='/css/style.css'>
 </head>
 
 <body>
   <nav>
     <ul>
-
-      <li> <a href="/sessions/new" id="log_in"> Log In </a></li>
-      <li> <a href="#" id="log_out"> Log Out </a></li>
       <li> <a href="/users/new" id="sign_up">Sign Up</a></li>
-
+      <li> <a href="/sessions/new" id="log_in"> Log In </a></li>
+      <li> <a href="/" id="log_out"> Log Out </a></li>
+      <li> <a href='/peeps'>View Peeps</a></li>
+      <li> <a href="/peeps/new">Add Peep</a></li>
     </ul>
   </nav>
+
     <% if current_user %>
        Welcome, <%= current_user.name %>
        <form method="post" action="/sessions">

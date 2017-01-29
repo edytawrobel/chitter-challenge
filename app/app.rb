@@ -68,25 +68,24 @@ class Chitter < Sinatra::Base
   delete '/sessions' do
     session[:user_id] = nil
     flash.keep[:notice] = "Goodbye!"
-    redirect to '/'
+    redirect to '/sessions/new'
   end
 
+  get '/peeps' do
+    @peeps = Peep.all
+    erb :'peeps/index'
+  end
 
-  # post '/login' do
-  #   erb :'login'
-  # end
-  #
-  # get '/logout' do
-  #   erb :'logout'
-  # end
-  #
-  # post '/send_message' do
-  #   erb :'send_message'
-  # end
-  #
-  # get '/display_all' do
-  #   erb :'display_all'
-  # end
+  get '/peeps/new' do
+    erb :'peeps/new'
+  end
+
+  post '/peeps' do
+    @peep = Peep.create(title: params[:title], message: params[:message], user: current_user)
+    @peep.save
+    redirect '/peeps'
+  end
+
 
   run! if app_file == $0
 end
