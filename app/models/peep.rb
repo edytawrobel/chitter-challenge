@@ -12,3 +12,6 @@ class Peep
   property :created_at, DateTime
   property :message, Text
 end
+
+
+require 'dm-validations'
