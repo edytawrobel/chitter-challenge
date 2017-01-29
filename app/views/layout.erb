@@ -7,9 +7,9 @@
 <body>
   <nav>
     <ul>
-  <!--
-      <li> <a href="#"> Log In </a></li>
-      <li> <a href="#"> Log Out </a></li> -->
+
+      <li> <a href="/sessions/new" id="log_in"> Log In </a></li>
+      <!-- <li> <a href="#"> Log Out </a></li>  -->
       <li> <a href="/users/new" id="sign_up">Sign Up</a></li>
 
     </ul>
@@ -17,6 +17,11 @@
     <% if current_user %>
       Welcome, <%= current_user.name %>
     <% end %>
+    <% if flash[:notice] %>
+        <div id = 'notice'>
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
     <% if flash[:errors] && !flash[:errors].empty? %>
         Sorry, refer to the problems below to solve the input issue:
         <ul id='errors'>
