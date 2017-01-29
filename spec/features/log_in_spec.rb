@@ -4,7 +4,7 @@ feature 'user log in' do
     click_link('log_in')
     fill_in(:email, with: 'tom@test.com')
     fill_in(:password, with: 'password')
-    click_button 'Log in'
+    click_button 'Log In'
   end
 
 end

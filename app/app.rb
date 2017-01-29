@@ -29,7 +29,6 @@ class Chitter < Sinatra::Base
   end
 
   get '/users/new' do  #sign up
-    #@user = User.new
     erb :'users/new'
   end
 
@@ -82,9 +81,9 @@ class Chitter < Sinatra::Base
 
   post '/peeps' do
     @peep = Peep.create(title: params[:title], message: params[:message], user: current_user)
-    @user.peeps << peep
+    @user.peeps << @peep
     @user.save
-    redirect '/peeps/new'
+    redirect to '/peeps'
   end
 
 
