@@ -1,8 +1,7 @@
 # Chitter Challenge
 
-### Task
-
-The task this weekend is to write a little Twitter clone that will allow the users to post messages to a public stream. It was requested that it satisfy the following user stories:
+A little Twitter clone that will allow the users to post messages to a public stream.
+It was requested that it satisfy the following user stories:
 
 ```
 As a Maker
@@ -29,12 +28,41 @@ As a maker
 So that I can better appreciate the context of a peep
 I want to see the time at which it was made
 ```
+Functionality:
+-------------
 
-* Drive the creation of your app using tests - either cucumber or rspec as you prefer
+* Test driven development (Rspec, Capybara)
 * Makers sign up to chitter with their email, password, name and a user name (e.g. sam@makersacademy.com, s3cr3t, Samuel Russell Hampden Joseph, tansaku).
 * The username and email are unique.
 * Peeps (posts to chitter) have the name of the maker and their user handle.
-* Use bcrypt to secure the passwords.
-* Use data mapper and postgres to save the data.
+* We use bcrypt to secure the passwords.
+* We use data mapper and postgres to save the data.
 * You don't have to be logged in to see the peeps.
 * You only can peep if you are logged in.
+
+Technologies used:
+-----------------
+* Ruby
+* Postgresql
+* Datamapper
+* BCrypt
+* Rspec
+* Capybara
+* RESTful URLs
+* Rake
+* HTML, CSS
+* SQL
+
+How to install and run the program:
+----------------------------------
+- git clone this repository
+- bundle install
+- create postgres databases with the names chitter_development & chitter_test
+- rake auto_migrate (for the database)
+- rspec
+- rackup
+- run app/app.rb in your terminal
+- log in: localhost:4567
+
+Interface:
+----------------------------------
