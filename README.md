@@ -67,3 +67,4 @@ How to install and run the program:
 Interface:
 ----------------------------------
 ![snap1](./app/public/images/1.png)
+![snap2](./app/public/images/2.png)
