@@ -9,19 +9,25 @@
     <ul>
 
       <li> <a href="/sessions/new" id="log_in"> Log In </a></li>
-      <!-- <li> <a href="#"> Log Out </a></li>  -->
+      <li> <a href="#" id="log_out"> Log Out </a></li>
       <li> <a href="/users/new" id="sign_up">Sign Up</a></li>
 
     </ul>
   </nav>
     <% if current_user %>
-      Welcome, <%= current_user.name %>
+       Welcome, <%= current_user.name %>
+       <form method="post" action="/sessions">
+         <input type="hidden" name="_method" value="delete">
+         <input type="submit" id="log_out" value="Log out">
+       </form>
     <% end %>
+
     <% if flash[:notice] %>
         <div id = 'notice'>
           <%= flash[:notice] %>
         </div>
-      <% end %>
+    <% end %>
+
     <% if flash[:errors] && !flash[:errors].empty? %>
         Sorry, refer to the problems below to solve the input issue:
         <ul id='errors'>
