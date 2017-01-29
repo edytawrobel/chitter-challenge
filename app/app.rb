@@ -20,31 +20,35 @@ class Chitter < Sinatra::Base
     end
   end
 
+  before do
+    @user = current_user
+  end
+
   get '/' do
     erb :'index'
   end
 
   get '/users/new' do  #sign up
+    @user = User.new
     erb :'users/new'
   end
 
   post '/users' do
-   user = User.new(
+   @user = User.new(
      name: params[:name],
      email: params[:email],
      handle: params[:handle],
      password: params[:password],
      password_confirmation: params[:password_confirmation])
 
-     session[:user_id] = user.id
-   if user.save
-     redirect '/'
-  #  else
-  #    flash[:error] = user.errors.full_messages
-  #    redirect '/users/new'
+     session[:user_id] = @user.id
+   if @user.save
+     redirect to '/'
+   else
+     flash.now[:errors] = @user.errors.full_messages
+     erb :'users/new'
   end
  end
-
 
   # post '/login' do
   #   erb :'login'
